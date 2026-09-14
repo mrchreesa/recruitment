@@ -1,0 +1,187 @@
+@import "tailwindcss";
+
+@theme {
+  /* ---- Palette ------------------------------------------------------- */
+  --color-ink: #14121a;
+  --color-ink-2: #3b3548;
+  --color-ink-3: #6b6478;
+
+  --color-bone: #fdfcf8;
+  --color-cream: #f6f1e7;
+  --color-line: #e7e1d6;
+
+  --color-grape: #6d28d9;
+  --color-grape-mid: #4c1d95;
+  --color-grape-deep: #240a4d;
+  --color-grape-soft: #f2ebff;
+
+  --color-zest: #c4f542;
+  --color-zest-deep: #a5d92a;
+  --color-zest-soft: #f2fedb;
+
+  --color-coral: #ff6b5b;
+  --color-coral-soft: #ffe8e4;
+
+  --color-butter: #ffd166;
+  --color-butter-soft: #fff4d9;
+
+  /* ---- Type ---------------------------------------------------------- */
+  --font-display: var(--font-bricolage), "Trebuchet MS", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  --text-8xl: 5.5rem;
+  --text-9xl: 7rem;
+
+  /* ---- Shape --------------------------------------------------------- */
+  --radius-4xl: 1.75rem;
+  --radius-5xl: 2.5rem;
+  --radius-6xl: 3.25rem;
+
+  /* ---- Motion -------------------------------------------------------- */
+  --animate-marquee: marquee 34s linear infinite;
+  --animate-marquee-rev: marquee-rev 34s linear infinite;
+  --animate-float: float 8s ease-in-out infinite;
+  --animate-rise: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-pop: pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  --animate-spin-slow: spin 18s linear infinite;
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  @keyframes marquee-rev {
+    from { transform: translateX(-50%); }
+    to   { transform: translateX(0); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-13px); }
+  }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pop {
+    from { opacity: 0; transform: scale(0.94); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+}
+
+/* ---- Base ------------------------------------------------------------ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background-color: var(--color-bone);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv01";
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection {
+    background-color: var(--color-zest);
+    color: var(--color-ink);
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+  p { text-wrap: pretty; }
+
+  /* Focus ring that works on both light and dark sections */
+  :where(a, button, input, select, textarea, [tabindex]):focus-visible {
+    outline: 3px solid var(--color-zest);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  input, select, textarea { font-family: inherit; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ---- Utilities ------------------------------------------------------- */
+
+/* Subtle paper grain, layered over flat colour blocks */
+@utility grain {
+  position: relative;
+  isolation: isolate;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.28;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.42'/%3E%3C/svg%3E");
+  }
+}
+
+/* Hand-drawn marker highlight behind a word */
+@utility marker-zest {
+  position: relative;
+  display: inline-block;
+  z-index: 0;
+  &::before {
+    content: "";
+    position: absolute;
+    left: -0.14em;
+    right: -0.14em;
+    bottom: 0.06em;
+    height: 0.42em;
+    z-index: -1;
+    background-color: var(--color-zest);
+    border-radius: 0.25em 0.6em 0.3em 0.5em;
+    transform: rotate(-1.2deg);
+  }
+}
+
+@utility marker-coral {
+  position: relative;
+  display: inline-block;
+  z-index: 0;
+  &::before {
+    content: "";
+    position: absolute;
+    left: -0.14em;
+    right: -0.14em;
+    bottom: 0.06em;
+    height: 0.42em;
+    z-index: -1;
+    background-color: var(--color-coral);
+    opacity: 0.55;
+    border-radius: 0.5em 0.25em 0.55em 0.3em;
+    transform: rotate(0.8deg);
+  }
+}
+
+/* Chunky offset shadow used on cards + buttons */
+@utility shadow-block {
+  box-shadow: 4px 4px 0 0 var(--color-ink);
+}
+@utility shadow-block-lg {
+  box-shadow: 7px 7px 0 0 var(--color-ink);
+}
+@utility shadow-block-grape {
+  box-shadow: 6px 6px 0 0 var(--color-grape);
+}
+
+/* Edge-to-edge fade used on marquees */
+@utility fade-x {
+  mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+}
