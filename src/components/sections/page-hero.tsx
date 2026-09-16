@@ -93,6 +93,7 @@ export function PageHero({
                 src={image}
                 alt={imageAlt ?? ""}
                 loading="eager"
+                fetchPriority="high"
                 className="relative aspect-[4/5] w-full rounded-5xl border-2 border-ink object-cover shadow-block-lg"
               />
             </div>

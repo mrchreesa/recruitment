@@ -5,10 +5,10 @@ import { contact, marqueeTerms } from "@/lib/content";
 
 /* Draft photography supplied in the client brief — swap for hi-res originals. */
 const briefImages = {
-  portrait: "/images/brief/winston-mckenzie.png",
-  gardening: "/images/brief/gardening.jpg",
-  robotics: "/images/brief/robotics.jpg",
-  teamMeeting: "/images/brief/team-meeting.jpg",
+  portrait: "/images/brief/winston-mckenzie.webp",
+  gardening: "/images/brief/gardening.webp",
+  robotics: "/images/brief/robotics.webp",
+  teamMeeting: "/images/brief/team-meeting.webp",
 };
 
 export default function HomePage() {
@@ -98,6 +98,7 @@ function Hero() {
               <img
                 src={briefImages.portrait}
                 alt="His Excellency, Ambassador, Dr. Winston McKenzie — The JobFather"
+                fetchPriority="high"
                 className="aspect-[264/228] w-full object-cover"
               />
               <figcaption className="border-t-2 border-ink px-6 py-5">

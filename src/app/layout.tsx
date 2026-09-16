@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import { preconnect } from "react-dom";
 import { Bricolage_Grotesque, Plus_Jakarta_Sans } from "next/font/google";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
@@ -44,6 +45,9 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
+  // Open the Unsplash connection early — most page photography is served from there.
+  preconnect("https://images.unsplash.com");
+
   return (
     <html lang="en-GB" className={`${display.variable} ${sans.variable} h-full`}>
       <body className="flex min-h-full flex-col">
