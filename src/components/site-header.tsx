@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { BRAND, contact } from "@/lib/content";
+import { contact } from "@/lib/content";
+import { Logo } from "./logo";
 import { Arrow, Button, Container, cx } from "./ui";
 
 const nav = [
@@ -47,7 +48,7 @@ export function SiteHeader() {
         <Container className="flex h-9 items-center justify-between text-[0.76rem] font-medium">
           <p className="flex items-center gap-2 text-white/80">
             <span className="inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-zest" />
-            Always 100% free for job seekers · REC corporate member
+            We recruit with a difference · Croydon &amp; South London
           </p>
           <div className="flex items-center gap-6 text-white/80">
             <a href={contact.phoneHref} className="transition-colors hover:text-zest">
@@ -195,36 +196,5 @@ export function SiteHeader() {
         </div>
       </div>
     </>
-  );
-}
-
-export function Logo({ tone = "dark" }: { tone?: "dark" | "light" }) {
-  return (
-    <Link href="/" className="group flex shrink-0 items-center gap-2.5" aria-label={`${BRAND} — home`}>
-      <span className="relative grid h-10 w-10 place-items-center rounded-2xl border-2 border-ink bg-zest transition-transform duration-200 group-hover:-rotate-6">
-        <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="#14121A" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M4 13.5l5 5L20 5.5" />
-        </svg>
-        <span className="absolute -right-1 -top-1 h-2.5 w-2.5 rounded-full border-2 border-ink bg-coral" />
-      </span>
-      <span className="flex flex-col leading-none">
-        <span
-          className={cx(
-            "font-display text-xl font-extrabold tracking-[-0.03em]",
-            tone === "light" ? "text-white" : "text-ink",
-          )}
-        >
-          {BRAND}
-        </span>
-        <span
-          className={cx(
-            "mt-0.5 text-[0.58rem] font-bold uppercase tracking-[0.2em]",
-            tone === "light" ? "text-white/55" : "text-ink-3",
-          )}
-        >
-          Recruitment
-        </span>
-      </span>
-    </Link>
   );
 }

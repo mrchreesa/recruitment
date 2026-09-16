@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { BRAND, accreditations, contact, marqueeTerms } from "@/lib/content";
+import { BRAND, contact, marqueeTerms } from "@/lib/content";
+import { Logo } from "./logo";
 import { Burst, Button, Container, Marquee } from "./ui";
 
 const columns = [
@@ -44,13 +45,13 @@ export function SiteFooter() {
             <div className="max-w-2xl">
               <Burst className="mb-5 h-9 w-9 animate-spin-slow text-zest" />
               <h2 className="text-[2.3rem] leading-[1.02] font-extrabold sm:text-5xl lg:text-[3.6rem]">
-                Right then.
+                The JobFather
                 <br />
-                Let&rsquo;s get you sorted.
+                is hiring <span className="text-zest">NOW</span>.
               </h2>
               <p className="mt-5 max-w-lg text-[1.02rem] leading-relaxed text-white/75">
-                Whether you&rsquo;re after your next job or your next hire, it starts with one short form
-                and a call back inside 24 hours.
+                Need a job? Upload your CV. Need staff? Send us the brief. Either way, you&rsquo;ll
+                have a real conversation with a real Consultant.
               </p>
             </div>
             <div className="flex w-full flex-col gap-3 sm:max-w-xs">
@@ -77,21 +78,11 @@ export function SiteFooter() {
         <Container className="py-14 sm:py-16">
           <div className="grid gap-12 lg:grid-cols-[1.3fr_2fr]">
             <div>
-              <FooterLogo />
+              <Logo tone="light" interactive={false} />
               <p className="mt-5 max-w-sm text-[0.95rem] leading-relaxed text-white/65">
-                A recruitment agency built around young people getting into good work — and
-                employers who need reliable staff without the guesswork.
+                We recruit with a difference. Full-time, part-time and Volunteer Parachute Positions
+                across Croydon and South London.
               </p>
-              <div className="mt-6 flex flex-wrap gap-2">
-                {accreditations.map((a) => (
-                  <span
-                    key={a}
-                    className="rounded-full border border-white/20 bg-white/[0.06] px-3 py-1 text-[0.7rem] font-semibold text-white/70"
-                  >
-                    {a}
-                  </span>
-                ))}
-              </div>
             </div>
 
             <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
@@ -125,7 +116,7 @@ export function SiteFooter() {
                     </a>
                   </li>
                   <li>
-                    <a href={`mailto:${contact.email}`} className="transition-colors hover:text-white">
+                    <a href={`mailto:${contact.email}`} className="transition-colors [overflow-wrap:anywhere] hover:text-white">
                       {contact.email}
                     </a>
                   </li>
@@ -143,7 +134,7 @@ export function SiteFooter() {
 
           <div className="mt-14 flex flex-col gap-4 border-t border-white/12 pt-7 text-[0.8rem] text-white/45 sm:flex-row sm:items-center sm:justify-between">
             <p>
-              © {new Date().getFullYear()} {BRAND} Recruitment Ltd. Registered in England &amp; Wales.
+              © {new Date().getFullYear()} {BRAND}. Croydon &amp; South London.
             </p>
             <p className="flex flex-wrap gap-x-5 gap-y-2">
               <span className="cursor-default transition-colors hover:text-white/80">Privacy policy</span>
@@ -151,31 +142,8 @@ export function SiteFooter() {
               <span className="cursor-default transition-colors hover:text-white/80">Cookies</span>
             </p>
           </div>
-          <p className="mt-6 text-[0.72rem] leading-relaxed text-white/30">
-            Demo site — placeholder brand and content. Photography via Unsplash. No form on this
-            site sends data anywhere.
-          </p>
         </Container>
       </div>
     </footer>
-  );
-}
-
-function FooterLogo() {
-  return (
-    <Link href="/" className="flex items-center gap-2.5" aria-label={`${BRAND} — home`}>
-      <span className="relative grid h-10 w-10 place-items-center rounded-2xl border-2 border-ink bg-zest">
-        <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="#14121A" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M4 13.5l5 5L20 5.5" />
-        </svg>
-        <span className="absolute -right-1 -top-1 h-2.5 w-2.5 rounded-full border-2 border-ink bg-coral" />
-      </span>
-      <span className="flex flex-col leading-none">
-        <span className="font-display text-xl font-extrabold tracking-[-0.03em] text-white">{BRAND}</span>
-        <span className="mt-0.5 text-[0.58rem] font-bold uppercase tracking-[0.2em] text-white/50">
-          Recruitment
-        </span>
-      </span>
-    </Link>
   );
 }

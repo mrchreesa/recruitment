@@ -7,37 +7,58 @@ const paths = [
   {
     tag: "For job seekers",
     title: "I need a job",
-    body: "Send us your CV and get a real conversation with a real consultant inside 24 hours. Free, always — you never pay us a penny.",
-    bullets: ["Free CV help if you need it", "Temp, part-time and permanent", "Paid weekly on temp work"],
+    body: "Send us your CV, and have a real conversation with a real Consultant.",
+    bullets: [
+      "Full-time, part-time or Parachute position",
+      "Permanent, part-time or temporary",
+      "Expenses paid — it is voluntary work",
+      "One-off small assessment fee of £30, to ascertain all your particulars meet regulations, and get yourself registered",
+      "Help can be given improving your CV",
+      "Pre-selected choice of positions in warehouse, hospitality, care & production. First-timers welcome",
+    ],
     primary: { href: "/upload-cv", label: "Upload your CV" },
-    secondary: { href: "/job-seekers", label: "How it works" },
-    image: photo.seekerC({ w: 700, h: 780 }),
+    secondary: { href: "/job-seekers", label: "For job seekers" },
+    image: photo.seekerC,
+    focus: "object-[60%_30%]",
     alt: "A young woman smiling after starting a new job",
     surface: "bg-zest",
   },
   {
     tag: "For employers",
     title: "I need staff",
-    body: "Give us the brief and get a short, vetted shortlist in 48 hours. Right-to-work checked, referenced, and ready to start.",
-    bullets: ["Cover from 24 hours", "90-day rebate on permanent", "One account manager, always"],
-    primary: { href: "/employers", label: "Hire staff" },
-    secondary: { href: "/book", label: "Book a call" },
-    image: photo.handshakeSmile({ w: 700, h: 780 }),
+    body: "Send us the brief, and have a real conversation with a real Consultant.",
+    bullets: [
+      "We will have a vetted shortlist ready",
+      "Right-to-work checked and referenced",
+      "Ready to start — try a Parachute job",
+      "Test a Parachute Applicant in position for 3 months before offering full-time engagement",
+      "Many looking for new positions — immediate start",
+      "Voluntary positions — only pay £100 expenses per week",
+    ],
+    primary: { href: "/employers#brief", label: "Send your brief" },
+    secondary: { href: "/book", label: "Book a call with a Consultant" },
+    image: photo.handshakeSmile,
+    focus: "object-[50%_35%]",
     alt: "Two business people shaking hands after agreeing a hire",
     surface: "bg-white",
   },
 ];
 
+/* Both photos are 3:2 landscape originals — serve the full frame at a few widths. */
+const IMAGE_WIDTHS = [480, 720, 960, 1280];
+const IMAGE_SIZES =
+  "(min-width: 1280px) 600px, (min-width: 1024px) calc(50vw - 3.5rem), (min-width: 640px) calc(100vw - 4rem), calc(100vw - 2.5rem)";
+
 export function DualPath() {
   return (
-    <section className="border-b-2 border-ink bg-cream py-16 sm:py-24">
+    <section id="which-one" className="border-b-2 border-ink bg-cream py-16 sm:py-24">
       <Container>
         <SectionHeading
           align="center"
           eyebrow="Two ways in"
           title={
             <>
-              Which one&rsquo;s <span className="marker-zest">you</span>?
+              Which one are <span className="marker-zest">you</span>?
             </>
           }
           lead="Pick your side and we'll take it from there. Both routes start with one short form."
@@ -45,16 +66,19 @@ export function DualPath() {
 
         <div className="mt-12 grid gap-6 lg:grid-cols-2 lg:gap-8">
           {paths.map((p, i) => (
-            <Reveal key={p.title} delay={i * 90}>
+            <Reveal key={p.title} delay={i * 90} className="h-full">
               <article
                 className={`group flex h-full flex-col overflow-hidden rounded-5xl border-2 border-ink ${p.surface} shadow-block-lg transition-transform duration-200 hover:-translate-y-1`}
               >
-                <div className="relative h-56 overflow-hidden border-b-2 border-ink sm:h-64">
+                <div className="relative aspect-[3/2] overflow-hidden border-b-2 border-ink lg:aspect-[16/9]">
                   <img
-                    src={p.image}
+                    src={p.image({ w: 960 })}
+                    srcSet={IMAGE_WIDTHS.map((w) => `${p.image({ w })} ${w}w`).join(", ")}
+                    sizes={IMAGE_SIZES}
                     alt={p.alt}
                     loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    decoding="async"
+                    className={`absolute inset-0 h-full w-full object-cover ${p.focus} transition-transform duration-500 group-hover:scale-105`}
                   />
                   <span className="absolute left-5 top-5 rounded-full border-2 border-ink bg-white px-3.5 py-1.5 text-[0.72rem] font-extrabold uppercase tracking-wider">
                     {p.tag}
@@ -78,7 +102,7 @@ export function DualPath() {
                     ))}
                   </ul>
 
-                  <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                  <div className="mt-auto flex flex-col gap-3 pt-8 sm:flex-row sm:flex-wrap">
                     <Button href={p.primary.href} variant="ink" size="md">
                       {p.primary.label}
                     </Button>

@@ -1,14 +1,14 @@
 import { photo } from "./images";
 
-export const BRAND = "LOGO";
+export const BRAND = "The JobFather";
 
 export const contact = {
-  phone: "0161 000 0000",
-  phoneHref: "tel:01610000000",
-  whatsapp: "07000 000 000",
-  email: "hello@logo.co.uk",
-  employersEmail: "hiring@logo.co.uk",
-  address: ["Unit 14, The Sorting House", "49 Whitworth Street", "Manchester M1 3EQ"],
+  phone: "07984 690625",
+  phoneHref: "tel:07984690625",
+  whatsapp: "07984 690625",
+  email: "winstonscrusade@hotmail.com",
+  employersEmail: "winstonscrusade@hotmail.com",
+  address: ["Croydon & South London"],
   hours: [
     ["Monday – Thursday", "8:00am – 6:00pm"],
     ["Friday", "8:00am – 5:00pm"],

@@ -20,15 +20,15 @@ const sans = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL("https://example.com"),
   title: {
-    default: "LOGO Recruitment — Good jobs for young people. Reliable staff for employers.",
-    template: "%s · LOGO Recruitment",
+    default: "The JobFather — Volunteer Parachute Positions · Croydon & South London",
+    template: "%s · The JobFather",
   },
   description:
-    "A UK recruitment agency built around young people getting into good work. Upload your CV for free, or brief us on the staff you need and get a vetted shortlist in 48 hours.",
+    "The JobFather, His Excellency Ambassador Dr. Winston McKenzie, recruits with a difference. Volunteer Parachute Positions, full-time and part-time roles across Croydon and South London.",
   openGraph: {
-    title: "LOGO Recruitment",
+    title: "The JobFather",
     description:
-      "Good jobs for young people. Reliable staff for employers. Free for job seekers, always.",
+      "We recruit with a difference. Become a Parachute Applicant — and land yourself in a job.",
     type: "website",
     locale: "en_GB",
   },
