@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { Bricolage_Grotesque, Plus_Jakarta_Sans } from "next/font/google";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { siteUrl } from "@/lib/site";
 import "./globals.css";
 
 const display = Bricolage_Grotesque({
@@ -18,7 +19,7 @@ const sans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://example.com"),
+  metadataBase: siteUrl,
   title: {
     default: "The JobFather — Volunteer Parachute Positions · Croydon & South London",
     template: "%s · The JobFather",
@@ -26,11 +27,19 @@ export const metadata: Metadata = {
   description:
     "The JobFather, His Excellency Ambassador Dr. Winston McKenzie, recruits with a difference. Volunteer Parachute Positions, full-time and part-time roles across Croydon and South London.",
   openGraph: {
-    title: "The JobFather",
+    title: "The JobFather — We recruit with a difference",
     description:
-      "We recruit with a difference. Become a Parachute Applicant — and land yourself in a job.",
+      "Become a Parachute Applicant — and land yourself in a job. £100 per week expenses for 9 hours' work per week. Croydon & South London.",
+    url: "/",
+    siteName: "The JobFather",
     type: "website",
     locale: "en_GB",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The JobFather — We recruit with a difference",
+    description:
+      "Become a Parachute Applicant — and land yourself in a job. £100 per week expenses for 9 hours' work per week. Croydon & South London.",
   },
 };
 
