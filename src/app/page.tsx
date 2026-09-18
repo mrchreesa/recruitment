@@ -224,14 +224,14 @@ const hiringCards = [
   {
     image: briefImages.gardening,
     alt: "An adult and a child planting seedlings in a garden bed",
-    line: "I have a Job for you.",
-    sub: "— Dr. Winston McKenzie",
+    line: "Amb. Dr. Winston McKenzie: “I have a Job for you.”",
     cta: { href: "#parachute", label: "How Parachute jobs work" },
   },
   {
     image: briefImages.robotics,
     alt: "A young man building a robot in a workshop",
     line: "Need a Job? Upload your CV.",
+    sub: "Registration charge only. No further fees, no spam — ask us to delete everything at any time.",
     cta: { href: "/upload-cv", label: "Upload your CV" },
   },
   {

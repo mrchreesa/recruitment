@@ -28,8 +28,8 @@ export function JobSeekerForm({ id = "apply" }: { id?: string }) {
       successBody="A consultant will call you within 24 hours (Mon–Sat). Keep an eye out for a Manchester number, and save it so you don't miss us."
       footnote={
         <>
-          We&rsquo;ll only ever use your details to find you work. No fees, no spam, and you can
-          ask us to delete everything at any time.
+          We&rsquo;ll only ever use your details to find you work. No further fees, no spam, and you
+          can ask us to delete everything at any time.
         </>
       }
     >

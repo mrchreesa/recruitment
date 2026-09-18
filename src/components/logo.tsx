@@ -36,23 +36,13 @@ export function Logo({
       >
         <LogoMark className="h-9 w-9" />
       </span>
-      <span className="flex flex-col leading-none">
-        <span
-          className={cx(
-            "text-[0.6rem] font-bold uppercase tracking-[0.32em]",
-            tone === "light" ? "text-zest" : "text-grape",
-          )}
-        >
-          The
-        </span>
-        <span
-          className={cx(
-            "mt-0.5 font-display text-[1.45rem] font-extrabold tracking-[-0.035em]",
-            tone === "light" ? "text-white" : "text-ink",
-          )}
-        >
-          JobFather
-        </span>
+      <span
+        className={cx(
+          "font-display text-[1.25rem] leading-none font-extrabold tracking-[-0.035em] whitespace-nowrap xl:text-[1.45rem]",
+          tone === "light" ? "text-white" : "text-ink",
+        )}
+      >
+        The JobFather
       </span>
     </Link>
   );

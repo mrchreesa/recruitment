@@ -11,8 +11,8 @@ const paths = [
     bullets: [
       "Full-time, part-time or Parachute position",
       "Permanent, part-time or temporary",
-      "Expenses paid — it is voluntary work",
-      "One-off small assessment fee of £30, to ascertain all your particulars meet regulations, and get yourself registered",
+      "Parachute jobs are voluntary — expenses paid per week",
+      "One-off registration charge of £30 to confirm your particulars meet regulations and register your profile",
       "Help can be given improving your CV",
       "Pre-selected choice of positions in warehouse, hospitality, care & production. First-timers welcome",
     ],

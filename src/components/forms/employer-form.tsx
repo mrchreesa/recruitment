@@ -74,10 +74,6 @@ export function EmployerForm({ id = "brief" }: { id?: string }) {
           hint="Optional but useful"
         />
         <Check
-          name="rates"
-          label="Please send me your current rate card as well"
-        />
-        <Check
           name="consent"
           required
           label={

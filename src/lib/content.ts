@@ -152,7 +152,7 @@ export const employerSteps = [
   {
     n: "04",
     title: "Aftercare that sticks",
-    body: "Day-one check-ins, week-one reviews and a free replacement inside the rebate period.",
+    body: "Day-one check-ins, week-one reviews and a free replacement within 2 weeks of the new worker’s commencement.",
   },
 ];
 

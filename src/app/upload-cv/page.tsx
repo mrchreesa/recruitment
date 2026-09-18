@@ -8,13 +8,13 @@ import { photo } from "@/lib/images";
 export const metadata: Metadata = {
   title: "Upload your CV",
   description:
-    "Send us your CV and we'll call you within 24 hours. Free for job seekers — no registration fees, no catch. No CV yet? We'll build one with you.",
+    "Send us your CV and we'll call you within 24 hours. Pay the registration charge once, with no further fees or spam.",
 };
 
 const whatHappens = [
   { t: "Within 24 hours", b: "A named consultant calls you. Mobile, not a withheld number." },
-  { t: "Within 48 hours", b: "We send you roles that actually fit your travel, hours and pay." },
-  { t: "Within a week", b: "Interview or trial shift booked, with prep from us beforehand." },
+  { t: "Within 1 week", b: "We send you roles that actually fit your travel, hours and pay." },
+  { t: "Within 2 weeks", b: "Interview or trial shift booked, with prep from us beforehand." },
 ];
 
 export default function UploadCvPage() {
@@ -33,11 +33,11 @@ export default function UploadCvPage() {
               A phone call <span className="text-zest">tomorrow.</span>
             </h1>
             <p className="mt-6 max-w-xl text-[1.05rem] leading-relaxed text-white/75">
-              Fill this in once and we&rsquo;ll match you against everything live across our sites.
-              You&rsquo;ll never be charged a penny — employers pay us, not you.
+              Fill this in once. After registration, we&rsquo;ll match you against everything live
+              across our sites.
             </p>
             <ul className="mt-7 flex flex-wrap gap-2">
-              {["100% free", "No CV? No problem", "Weekly pay on temp work", "You can pause anytime"].map(
+              {["Registration charge only", "No CV? No problem", "No further fees", "You can pause anytime"].map(
                 (p) => (
                   <li key={p}>
                     <Pill tone="light">{p}</Pill>
@@ -108,7 +108,7 @@ export default function UploadCvPage() {
                   {contact.phone}
                 </a>
                 <p className="mt-4 text-center text-[0.76rem] font-semibold text-ink/60">
-                  Mon–Thu 8am–6pm · Fri 8am–5pm · Sat 9am–1pm
+                  Monday–Friday 9:30am–4:30pm · Saturday 10am–3pm
                 </p>
               </div>
 

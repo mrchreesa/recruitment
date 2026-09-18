@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Accordion } from "@/components/accordion";
 import { EmployerForm } from "@/components/forms/employer-form";
 import { Reveal } from "@/components/reveal";
-import { LogoWall } from "@/components/sections/logo-wall";
 import { PageHero } from "@/components/sections/page-hero";
 import { Steps } from "@/components/sections/steps";
 import { EmployerTestimonials } from "@/components/sections/testimonials";
@@ -29,16 +28,11 @@ const problems = [
     pain: "You never speak to the same person twice",
     fix: "One named account manager with a direct mobile. Out-of-hours line for shift cover.",
   },
-  {
-    pain: "Hidden uplifts on the invoice",
-    fix: "A published rate card. Pay rate plus a fixed margin. No weekend surcharges you didn't agree.",
-  },
 ];
 
 const guarantees = [
   { v: "24 hrs", l: "Emergency shift cover" },
   { v: "48 hrs", l: "First vetted shortlist" },
-  { v: "90 days", l: "Permanent placement rebate" },
   { v: "1 hr", l: "Callback on a new brief" },
 ];
 
@@ -56,16 +50,14 @@ export default function EmployersPage() {
             <span className="text-zest">stay put.</span>
           </>
         }
-        lead="We recruit across warehouse, driving, care, hospitality, construction, production, retail and admin — with a bias toward younger workers that most agencies quietly avoid. Our six-month retention is 91%."
+        lead="We recruit across warehouse, driving, care, hospitality, construction, production, retail and admin — with a bias toward younger workers that most agencies quietly avoid."
         primary={{ href: "#brief", label: "Send us a brief" }}
         secondary={{ href: "/book", label: "Book a consultation" }}
         image={photo.handshakeLaptop({ w: 900, h: 1100 })}
         imageAlt="A hiring manager shaking hands with a new recruit"
-        pills={["Shortlist in 48 hrs", "90-day rebate", "REC corporate member"]}
       />
 
       <Guarantees />
-      <LogoWall label="Currently staffing 90+ sites across the North &amp; Midlands" />
       <Problems />
 
       <Steps
@@ -77,7 +69,7 @@ export default function EmployersPage() {
             doesn&rsquo;t eat your week
           </>
         }
-        lead="You give us fifteen minutes at the start. We do the rest and report back."
+        lead="You’ve given us 15 minutes at the start. Now register your company. We do the rest and report back."
         steps={employerSteps}
         tone="dark"
       />
@@ -94,7 +86,7 @@ function Guarantees() {
   return (
     <section className="border-b-2 border-ink bg-zest">
       <Container className="py-10 sm:py-12">
-        <dl className="grid grid-cols-2 gap-x-6 gap-y-8 lg:grid-cols-4">
+        <dl className="grid grid-cols-2 gap-x-6 gap-y-8 lg:grid-cols-3">
           {guarantees.map((g, i) => (
             <Reveal key={g.l} delay={i * 60}>
               <div className="flex flex-col">
@@ -125,11 +117,11 @@ function Problems() {
               <span className="marker-coral">burned before</span>
             </>
           }
-          lead="Four things clients tell us they hated about their last agency — and exactly what we do instead."
+          lead="Three things clients tell us they hated about their last agency — and exactly what we do instead."
           className="max-w-2xl"
         />
 
-        <ul className="mt-12 grid gap-5 sm:grid-cols-2">
+        <ul className="mt-12 grid gap-5 md:grid-cols-3">
           {problems.map((p, i) => (
             <Reveal as="li" key={p.pain} delay={(i % 2) * 80}>
               <article className="flex h-full flex-col overflow-hidden rounded-4xl border-2 border-ink bg-white transition-transform duration-200 hover:-translate-y-1.5 hover:shadow-block-lg">
@@ -233,15 +225,13 @@ function BriefSection() {
                   you&rsquo;re short of
                 </>
               }
-              lead="Takes about ninety seconds. You'll get a call from your account manager within one working hour, and a shortlist inside 48."
+              lead="You’ll get a call from one of our consultants."
             />
 
             <ul className="mt-8 flex flex-col gap-3">
               {[
-                "No obligation and no cost to enquire",
+                "No obligation — no cost to enquire",
                 "Commercially confidential — we never approach your staff",
-                "Rate card sent with your shortlist",
-                "Out-of-hours cover line for live shifts",
               ].map((b) => (
                 <li key={b} className="flex items-start gap-3 text-[0.93rem] text-ink-2">
                   <span className="mt-[3px] grid h-[18px] w-[18px] shrink-0 place-items-center rounded-full border-2 border-ink bg-zest">
@@ -255,12 +245,9 @@ function BriefSection() {
             </ul>
 
             <div className="mt-9 rounded-4xl border-2 border-ink bg-grape p-6 text-white">
-              <p className="text-[0.94rem] leading-relaxed text-white/80">
-                Need someone on site tomorrow morning? Don&rsquo;t use the form —
+              <p className="font-display text-[1.25rem] leading-snug font-extrabold">
+                Register your company for £1,200 and get on our shortlist.
               </p>
-              <Button href="/book" variant="zest" size="md" className="mt-4">
-                Book an urgent call
-              </Button>
             </div>
           </div>
 
