@@ -1,6 +1,6 @@
 import { Reveal } from "@/components/reveal";
 import { DualPath } from "@/components/sections/dual-path";
-import { Button, Container, Marquee, Pill, SectionHeading, cx } from "@/components/ui";
+import { Button, Container, Marquee, SectionHeading, cx } from "@/components/ui";
 import { contact, marqueeTerms } from "@/lib/content";
 
 /* Draft photography supplied in the client brief — swap for hi-res originals. */
@@ -45,12 +45,7 @@ function Hero() {
         <div className="grid items-center gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
           {/* Copy */}
           <div className="animate-rise">
-            <Pill tone="coral" className="px-3.5 py-1.5">
-              <span className="inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-coral" />
-              Volunteer Parachute Positions
-            </Pill>
-
-            <p className="mt-6 font-display text-[1.15rem] font-bold text-grape sm:text-[1.35rem]">
+            <p className="font-display text-[1.15rem] font-bold text-grape sm:text-[1.35rem]">
               Looking for a job? Are you sick of being rejected?
             </p>
 
