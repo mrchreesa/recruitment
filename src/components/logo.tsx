@@ -2,10 +2,13 @@ import Link from "next/link";
 import { BRAND } from "@/lib/content";
 import { cx } from "./ui";
 
-/** Fedora mark — a nod to the "JobFather" name and Dr McKenzie's signature hat. */
+/**
+ * Fedora mark — a nod to the "JobFather" name and Dr McKenzie's signature hat.
+ * The viewBox is cropped tight around the hat so it fills its badge.
+ */
 export function LogoMark({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 40 40" aria-hidden="true" className={className}>
+    <svg viewBox="3 3 34 34" aria-hidden="true" className={className}>
       <path
         d="M12 24.5C11.4 18.5 11.9 13.4 14.4 11.2c1.6-1.3 3.2.9 5.6.9s4-2.2 5.6-.9c2.5 2.2 3 7.3 2.4 13.3z"
         fill="#14121A"
@@ -30,11 +33,11 @@ export function Logo({
     <Link href="/" className="group flex shrink-0 items-center gap-2.5" aria-label={`${BRAND} — home`}>
       <span
         className={cx(
-          "grid h-11 w-11 place-items-center rounded-2xl border-2 border-ink bg-zest",
+          "grid h-14 w-14 place-items-center rounded-2xl border-2 border-ink bg-zest",
           interactive && "transition-transform duration-200 group-hover:-rotate-6",
         )}
       >
-        <LogoMark className="h-9 w-9" />
+        <LogoMark className="h-12 w-12" />
       </span>
       <span
         className={cx(

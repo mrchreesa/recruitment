@@ -1,20 +1,21 @@
-import type { Metadata } from "next";
 import { ContactForm } from "@/components/forms/contact-form";
 import { Reveal } from "@/components/reveal";
 import { Button, Container, Eyebrow, Pill, SectionHeading } from "@/components/ui";
 import { contact } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Contact us",
   description:
-    "Call, email or drop into the Manchester office. Job seekers and employers both get a reply within one working day.",
-};
+    "Call or email The JobFather — Volunteer Parachute Positions across Croydon and South London. Open Monday to Friday 9:30am–4:30pm and Saturday 10am–3pm.",
+  path: "/contact",
+});
 
 const routes = [
   {
     tag: "Looking for work",
     title: "Job seekers",
-    body: "Register, ask about a role you've seen, or chase an application. Always free.",
+    body: "Register, ask about a Volunteer Parachute Position, or chase an application.",
     action: { href: "/upload-cv", label: "Upload your CV" },
     detail: contact.phone,
     detailHref: contact.phoneHref,
@@ -23,7 +24,7 @@ const routes = [
   {
     tag: "Looking to hire",
     title: "Employers",
-    body: "New brief, existing booking, invoices or rate cards — this goes straight to the client team.",
+    body: "New brief, company registration or an existing candidate — this goes straight to the client team.",
     action: { href: "/employers#brief", label: "Send a brief" },
     detail: contact.employersEmail,
     detailHref: `mailto:${contact.employersEmail}`,
@@ -146,10 +147,6 @@ function FormSection() {
                   </div>
                 ))}
               </dl>
-              <p className="mt-4 rounded-2xl bg-zest-soft px-4 py-3 text-[0.82rem] leading-relaxed text-ink-2">
-                <span className="font-bold text-ink">Shift cover line:</span> answered from 6am,
-                seven days, for live client bookings.
-              </p>
             </div>
           </div>
 
@@ -169,13 +166,14 @@ function Office() {
         <div className="overflow-hidden rounded-5xl border-2 border-ink bg-white shadow-block-lg">
           <div className="grid lg:grid-cols-[1fr_1.1fr]">
             <div className="p-8 sm:p-11">
-              <Eyebrow>Come and see us</Eyebrow>
+              <Eyebrow>Where we work</Eyebrow>
               <h2 className="mt-4 text-[1.9rem] leading-tight font-extrabold sm:text-4xl">
-                The Manchester office
+                Croydon &amp; South London
               </h2>
               <p className="mt-4 text-[0.98rem] leading-relaxed text-ink-2">
-                Two minutes from Oxford Road station. Walk-ins welcome during opening hours —
-                bring photo ID and proof of your right to work and we can register you on the spot.
+                We place Volunteer Parachute Candidates with employers across Croydon and South
+                London. Book a call and we&rsquo;ll arrange to meet — bring photo ID and proof of
+                your right to work.
               </p>
 
               <address className="mt-7 not-italic">
@@ -189,9 +187,9 @@ function Office() {
               </address>
 
               <div className="mt-7 flex flex-wrap gap-2">
-                <Pill tone="zest">Step-free access</Pill>
-                <Pill tone="grape">2 min from Oxford Road</Pill>
-                <Pill tone="coral">Walk-ins welcome</Pill>
+                <Pill tone="zest">Croydon</Pill>
+                <Pill tone="grape">South London</Pill>
+                <Pill tone="coral">Meetings by appointment</Pill>
               </div>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -232,7 +230,7 @@ function Office() {
               <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-full">
                 <div className="flex flex-col items-center">
                   <span className="rounded-full border-2 border-ink bg-ink px-4 py-2 text-[0.76rem] font-extrabold text-zest whitespace-nowrap">
-                    LOGO Recruitment
+                    The JobFather
                   </span>
                   <svg viewBox="0 0 32 40" className="mt-1 h-10 w-8 drop-shadow-sm" aria-hidden="true">
                     <path
@@ -246,9 +244,6 @@ function Office() {
                 </div>
               </div>
 
-              <p className="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full border-2 border-ink bg-white px-4 py-1.5 text-[0.72rem] font-bold whitespace-nowrap">
-                Illustrative map · demo site
-              </p>
             </div>
           </div>
         </div>

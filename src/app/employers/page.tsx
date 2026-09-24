@@ -1,19 +1,21 @@
-import type { Metadata } from "next";
 import { Accordion } from "@/components/accordion";
 import { EmployerForm } from "@/components/forms/employer-form";
 import { Reveal } from "@/components/reveal";
 import { PageHero } from "@/components/sections/page-hero";
 import { Steps } from "@/components/sections/steps";
-import { EmployerTestimonials } from "@/components/sections/testimonials";
 import { Button, Container, Eyebrow, SectionHeading } from "@/components/ui";
 import { employerFaqs, employerSteps } from "@/lib/content";
+import { JsonLd } from "@/components/json-ld";
+import { faqJsonLd } from "@/lib/seo";
 import { photo } from "@/lib/images";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "For employers",
   description:
-    "Vetted, right-to-work checked staff across warehouse, driving, care, hospitality, construction and admin. Shortlists in 48 hours, cover from 24.",
-};
+    "Volunteer Parachute Positions for employers in Croydon & South London. Pre-selected candidates for 9 hours a week, from a one-off £1,250 registration.",
+  path: "/employers",
+});
 
 const problems = [
   {
@@ -22,18 +24,19 @@ const problems = [
   },
   {
     pain: "Nobody turns up on Monday",
-    fix: "Every temp gets a confirmation call the night before and a check-in on arrival.",
+    fix: "Every candidate gets a confirmation call the night before and a check-in on arrival.",
   },
   {
     pain: "You never speak to the same person twice",
-    fix: "One named account manager with a direct mobile. Out-of-hours line for shift cover.",
+    fix: "One named consultant with a direct line, from registration to replacement.",
   },
 ];
 
 const guarantees = [
-  { v: "24 hrs", l: "Emergency shift cover" },
-  { v: "48 hrs", l: "First vetted shortlist" },
-  { v: "1 hr", l: "Callback on a new brief" },
+  { v: "£1,250", l: "One-off registration, incl. your first candidate" },
+  { v: "£250", l: "Per additional candidate, per quarter" },
+  { v: "9 hrs", l: "Per week, in a rotation to suit you" },
+  { v: "2 wks", l: "Free replacement if it doesn’t work out" },
 ];
 
 export default function EmployersPage() {
@@ -50,7 +53,7 @@ export default function EmployersPage() {
             <span className="text-zest">stay put.</span>
           </>
         }
-        lead="We recruit across warehouse, driving, care, hospitality, construction, production, retail and admin — with a bias toward younger workers that most agencies quietly avoid."
+        lead="We specialise in Volunteer Parachute Positions across Croydon and South London — pre-selected candidates for 9 hours a week, in a rotation to suit your business."
         primary={{ href: "#brief", label: "Send us a brief" }}
         secondary={{ href: "/book", label: "Book a consultation" }}
         image={photo.handshakeLaptop({ w: 900, h: 1100 })}
@@ -74,8 +77,7 @@ export default function EmployersPage() {
         tone="dark"
       />
 
-      <WhyYoung />
-      <EmployerTestimonials />
+      <WhyParachute />
       <BriefSection />
       <Faqs />
     </>
@@ -86,7 +88,7 @@ function Guarantees() {
   return (
     <section className="border-b-2 border-ink bg-zest">
       <Container className="py-10 sm:py-12">
-        <dl className="grid grid-cols-2 gap-x-6 gap-y-8 lg:grid-cols-3">
+        <dl className="grid grid-cols-2 gap-x-6 gap-y-8 lg:grid-cols-4">
           {guarantees.map((g, i) => (
             <Reveal key={g.l} delay={i * 60}>
               <div className="flex flex-col">
@@ -150,7 +152,14 @@ function Problems() {
   );
 }
 
-function WhyYoung() {
+const parachutePoints = [
+  "9 hours per week, in a rotation to suit you and the candidate",
+  "A revolving 3-month position — test a candidate before offering full-time engagement",
+  "You pay the candidate £100 expenses directly, at the end of every week",
+  "Eliminating National Insurance, minimum wages and sick pay, as a Parachute Candidate is a voluntary worker",
+];
+
+function WhyParachute() {
   return (
     <section className="border-b-2 border-ink bg-cream py-16 sm:py-24">
       <Container>
@@ -165,36 +174,32 @@ function WhyYoung() {
               />
             </div>
             <div className="absolute -bottom-5 -left-3 rotate-[-3deg] rounded-3xl border-2 border-ink bg-white px-5 py-4 shadow-block sm:-left-6">
-              <p className="font-display text-3xl font-extrabold leading-none text-grape">1 in 3</p>
+              <p className="font-display text-3xl font-extrabold leading-none text-grape">£100</p>
               <p className="mt-1 max-w-[10rem] text-[0.76rem] leading-snug font-semibold text-ink-2">
-                of our placements are someone&rsquo;s first permanent contract
+                expenses per week, paid by you to the candidate
               </p>
             </div>
           </Reveal>
 
           <div>
-            <Eyebrow>The case for younger hires</Eyebrow>
+            <Eyebrow>Our speciality</Eyebrow>
             <h2 className="mt-5 text-[2.1rem] leading-[1.03] font-extrabold sm:text-5xl">
-              The candidates
+              Why try a Volunteer
               <br />
-              everyone else skips
+              Parachute Candidate?
             </h2>
-            <div className="mt-6 flex flex-col gap-4 text-[1rem] leading-relaxed text-ink-2">
-              <p>
-                A thin CV isn&rsquo;t a character flaw. Most 21-to-29-year-olds we place have had no
-                one show them how to write one, let alone how to interview — and they get screened
-                out before a human ever reads their name.
-              </p>
-              <p>
-                We do the screening properly: a structured competency call, two references and a
-                straight conversation about attitude, travel and reliability. Then we prep them
-                before they walk into your building.
-              </p>
-              <p className="font-semibold text-ink">
-                The result is a cohort that&rsquo;s cheaper to hire, quicker to train and — on our
-                numbers — noticeably more likely to still be there in six months.
-              </p>
-            </div>
+            <ul className="mt-7 flex flex-col gap-3.5">
+              {parachutePoints.map((p) => (
+                <li key={p} className="flex items-start gap-3 text-[1rem] leading-relaxed text-ink-2">
+                  <span className="mt-[5px] grid h-[18px] w-[18px] shrink-0 place-items-center rounded-full border-2 border-ink bg-zest">
+                    <svg viewBox="0 0 16 16" className="h-2.5 w-2.5" fill="none" stroke="#14121A" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M3 8.5l3.5 3.5L13 4.5" />
+                    </svg>
+                  </span>
+                  {p}
+                </li>
+              ))}
+            </ul>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Button href="#brief" variant="grape" size="lg">
                 Tell us what you need
@@ -246,8 +251,14 @@ function BriefSection() {
 
             <div className="mt-9 rounded-4xl border-2 border-ink bg-grape p-6 text-white">
               <p className="font-display text-[1.25rem] leading-snug font-extrabold">
-                Register your company for £1,200 and get on our shortlist.
+                Register your company for £1,250 and get on our shortlist.
               </p>
+              <p className="mt-2 text-[0.9rem] text-white/75">
+                Includes your first Volunteer Parachute Candidate.
+              </p>
+              <Button href="/register#employer" variant="zest" size="sm" className="mt-5">
+                Register your company
+              </Button>
             </div>
           </div>
 
@@ -268,8 +279,9 @@ function Faqs() {
           align="center"
           eyebrow="Employer FAQs"
           title="The practical questions"
-          lead="Rates, compliance, replacements and speed. If it's not covered, ask us directly."
+          lead="Rates, replacements and how it works. If it's not covered, ask us directly."
         />
+        <JsonLd data={faqJsonLd(employerFaqs)} />
         <Accordion items={employerFaqs} className="mt-12" />
       </Container>
     </section>

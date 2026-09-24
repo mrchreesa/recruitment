@@ -29,10 +29,10 @@ export function SectorGrid({
                 <>
                   Eight sectors.
                   <br />
-                  Hundreds of <span className="marker-coral">live roles</span>.
+                  One <span className="marker-coral">speciality</span>.
                 </>
               }
-              lead="Temporary, temp-to-perm and permanent work across the North West, Yorkshire and the Midlands."
+              lead="Specialising in Volunteer Parachute Positions, currently in Croydon and South London. Leading to a possible permanent position — optional."
               className="max-w-2xl"
             />
             <Button href="/upload-cv" variant="grape" size="md" className="shrink-0">
@@ -47,16 +47,13 @@ export function SectorGrid({
               <article
                 className={`group flex h-full flex-col overflow-hidden rounded-4xl border-2 border-ink ${tints[s.tint]} transition-all duration-200 hover:-translate-y-1.5 hover:shadow-block-lg`}
               >
-                <div className="relative aspect-[5/4] overflow-hidden border-b-2 border-ink">
+                <div className="aspect-[5/4] overflow-hidden border-b-2 border-ink">
                   <img
                     src={s.image}
                     alt={s.name}
                     loading="lazy"
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <span className="absolute bottom-3 left-3 rounded-full border-2 border-ink bg-white px-3 py-1 text-[0.7rem] font-extrabold tracking-tight">
-                    {s.pay}
-                  </span>
                 </div>
                 <div className="flex flex-1 flex-col p-5">
                   <h3 className="text-[1.2rem] leading-tight font-extrabold">{s.name}</h3>

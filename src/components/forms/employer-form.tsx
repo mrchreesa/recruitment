@@ -2,7 +2,6 @@
 
 import {
   Check,
-  ChipGroup,
   Field,
   FormSection,
   FormShell,
@@ -10,7 +9,6 @@ import {
   TextareaField,
 } from "./form-kit";
 import {
-  contractOptions,
   locations,
   staffCountOptions,
   staffTypeOptions,
@@ -24,7 +22,8 @@ export function EmployerForm({ id = "brief" }: { id?: string }) {
       submitLabel="Send hiring brief"
       accent="grape"
       successTitle="Brief received."
-      successBody="Your account manager will call within one working hour during office hours. Shortlists typically land inside 48 hours of that call."
+      successBody="A consultant will call you back during office hours to talk through your brief. To get on our shortlist, complete your £1,250 company registration — it includes your first Volunteer Parachute Candidate."
+      next={{ href: "/register#employer", label: "Register your company" }}
       footnote={
         <>
           Sent securely and treated as commercially confidential. We&rsquo;ll never approach your
@@ -36,7 +35,7 @@ export function EmployerForm({ id = "brief" }: { id?: string }) {
         <div className="grid gap-5 sm:grid-cols-2">
           <Field label="Company name" name="company" required autoComplete="organization" placeholder="Northfield Logistics Ltd" />
           <Field label="Contact person" name="contact" required autoComplete="name" placeholder="Sarah Whitfield" />
-          <Field label="Phone number" name="phone" type="tel" required autoComplete="tel" placeholder="0161 000 0000" />
+          <Field label="Phone number" name="phone" type="tel" required autoComplete="tel" placeholder="020 0000 0000" />
           <Field label="Email address" name="email" type="email" required autoComplete="email" placeholder="you@company.co.uk" />
           <SelectField
             label="Business location"
@@ -62,15 +61,17 @@ export function EmployerForm({ id = "brief" }: { id?: string }) {
             className="sm:col-span-2"
           />
         </div>
-        <ChipGroup label="Contract type" options={contractOptions} hint="Pick one" single />
+        <p className="rounded-2xl border-2 border-ink bg-zest-soft px-4 py-3.5 text-[0.9rem] font-bold text-ink">
+          We specialise in Volunteer Parachute Positions.
+        </p>
       </FormSection>
 
       <FormSection step="3" title="The detail">
         <TextareaField
-          label="Additional message"
+          label="Tell us anything useful"
           name="message"
           rows={5}
-          placeholder="Shift patterns, pay rates, site location, tickets or certificates needed, anything that would help us get the shortlist right first time."
+          placeholder="Travel expected, physical work, communication with customers, certifications required, etc."
           hint="Optional but useful"
         />
         <Check
@@ -78,7 +79,7 @@ export function EmployerForm({ id = "brief" }: { id?: string }) {
           required
           label={
             <>
-              I&rsquo;m happy for <span className="font-semibold text-ink">LOGO</span> to contact me
+              I&rsquo;m happy for <span className="font-semibold text-ink">The JobFather</span> to contact me
               about this vacancy and to hold these details in line with their privacy policy.
             </>
           }

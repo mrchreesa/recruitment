@@ -9,10 +9,9 @@ const paths = [
     title: "I need a job",
     body: "Send us your CV, and have a real conversation with a real Consultant.",
     bullets: [
-      "Full-time, part-time or Parachute position",
-      "Permanent, part-time or temporary",
-      "Parachute jobs are voluntary — expenses paid per week",
-      "One-off registration charge of £30 to confirm your particulars meet regulations and register your profile",
+      "Specialising in Volunteer Parachute Positions",
+      "Expenses of £100 paid at the end of every week",
+      "One-off Registration Pack — £30, to confirm your particulars meet regulations and register your profile",
       "Help can be given improving your CV",
       "Pre-selected choice of positions in warehouse, hospitality, care & production. First-timers welcome",
     ],
@@ -30,8 +29,9 @@ const paths = [
     bullets: [
       "We will have a vetted shortlist ready",
       "Right-to-work checked and referenced",
-      "Ready to start — try a Parachute job",
-      "Test a Parachute Applicant in position for 3 months before offering full-time engagement",
+      "Ready to start — why not try a Volunteer Parachute Candidate?",
+      "Eliminating National Insurance, minimum wages and sick pay",
+      "Test a Volunteer Parachute Candidate in position for 3 months before offering full-time engagement",
       "Many looking for new positions — immediate start",
       "Voluntary positions — only pay £100 expenses per week",
     ],
@@ -61,7 +61,7 @@ export function DualPath() {
               Which one are <span className="marker-zest">you</span>?
             </>
           }
-          lead="Pick your side and we'll take it from there. Both routes start with one short form."
+          lead="Pick your side and we'll take it from there. Both routes begin with a short, easy application form."
         />
 
         <div className="mt-12 grid gap-6 lg:grid-cols-2 lg:gap-8">

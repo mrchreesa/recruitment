@@ -8,10 +8,10 @@ import { Logo } from "./logo";
 import { Arrow, Button, Container, cx } from "./ui";
 
 const nav = [
-  { href: "/about", label: "About" },
   { href: "/job-seekers", label: "For Job Seekers" },
   { href: "/employers", label: "For Employers" },
   { href: "/services", label: "Services" },
+  { href: "/register", label: "Register" },
   { href: "/contact", label: "Contact" },
 ];
 

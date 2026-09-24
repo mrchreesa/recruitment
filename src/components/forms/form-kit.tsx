@@ -349,12 +349,15 @@ export function FormShell({
   footnote,
   accent = "zest",
   id,
+  next,
 }: {
   children: ReactNode;
   submitLabel: string;
   successTitle: string;
   successBody: string;
   footnote?: ReactNode;
+  /** Primary action on the success screen; falls back to "Back to home". */
+  next?: { href: string; label: string };
   accent?: "zest" | "grape" | "coral";
   id?: string;
 }) {
@@ -380,8 +383,8 @@ export function FormShell({
         <h3 className="mt-6 text-3xl font-extrabold sm:text-4xl">{successTitle}</h3>
         <p className="mx-auto mt-4 max-w-md text-[1rem] leading-relaxed text-ink-2">{successBody}</p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
-          <Button href="/" variant="ink" size="md">
-            Back to home
+          <Button href={next?.href ?? "/"} variant="ink" size="md">
+            {next?.label ?? "Back to home"}
           </Button>
           <button
             type="button"

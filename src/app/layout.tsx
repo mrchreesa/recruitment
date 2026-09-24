@@ -4,6 +4,8 @@ import { preconnect } from "react-dom";
 import { Bricolage_Grotesque, Plus_Jakarta_Sans } from "next/font/google";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { JsonLd } from "@/components/json-ld";
+import { organizationJsonLd } from "@/lib/seo";
 import { siteUrl } from "@/lib/site";
 import "./globals.css";
 
@@ -26,7 +28,7 @@ export const metadata: Metadata = {
     template: "%s · The JobFather",
   },
   description:
-    "The JobFather, His Excellency Ambassador Dr. Winston McKenzie, recruits with a difference. Volunteer Parachute Positions, full-time and part-time roles across Croydon and South London.",
+    "The JobFather, His Excellency Ambassador Dr. Winston McKenzie, recruits with a difference. Specialising in Volunteer Parachute Positions across Croydon and South London.",
   openGraph: {
     title: "The JobFather — We recruit with a difference",
     description:
@@ -62,6 +64,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           {children}
         </main>
         <SiteFooter />
+        <JsonLd data={organizationJsonLd()} />
       </body>
     </html>
   );

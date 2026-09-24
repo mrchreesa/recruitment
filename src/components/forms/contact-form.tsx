@@ -16,7 +16,7 @@ export function ContactForm({ id = "contact-form" }: { id?: string }) {
       submitLabel="Send message"
       accent="coral"
       successTitle="Message sent."
-      successBody="We reply to everything within one working day — usually a lot faster. If it's urgent, give the office a ring and ask for the duty consultant."
+      successBody="We reply to everything within one working day — usually a lot faster. If it's urgent, give the office a ring during opening hours."
       footnote="We aim to reply within one working day, Monday to Saturday."
     >
       <FormSection step="1" title="Who's getting in touch">
@@ -42,7 +42,7 @@ export function ContactForm({ id = "contact-form" }: { id?: string }) {
           required
           label={
             <>
-              I&rsquo;m happy for <span className="font-semibold text-ink">LOGO</span> to reply to
+              I&rsquo;m happy for <span className="font-semibold text-ink">The JobFather</span> to reply to
               this message and hold my details in line with their privacy policy.
             </>
           }

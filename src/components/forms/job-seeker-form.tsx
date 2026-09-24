@@ -12,9 +12,9 @@ import {
 } from "./form-kit";
 import {
   availabilityOptions,
-  experienceOptions,
+  contact,
   locations,
-  shiftOptions,
+  rotationOptions,
   workTypes,
 } from "@/lib/content";
 
@@ -25,11 +25,12 @@ export function JobSeekerForm({ id = "apply" }: { id?: string }) {
       submitLabel="Send my details"
       accent="zest"
       successTitle="Nice one — that's in."
-      successBody="A consultant will call you within 24 hours (Mon–Sat). Keep an eye out for a Manchester number, and save it so you don't miss us."
+      successBody={`A consultant will call you back within 24 hours (Mon–Sat). Save our number, ${contact.phone}, so you don't miss us. In the meantime, you can complete your £30 Registration Pack.`}
+      next={{ href: "/register#candidate", label: "Pay your Registration Pack" }}
       footnote={
         <>
           We&rsquo;ll only ever use your details to find you work. No further fees, no spam, and you
-          can ask us to delete everything at any time.
+          can ask us to delete anything at any time.
         </>
       }
     >
@@ -67,16 +68,16 @@ export function JobSeekerForm({ id = "apply" }: { id?: string }) {
             required
             placeholder="Your availability"
           />
-          <SelectField
-            label="Experience"
+          <TextareaField
+            label="Previous experience or qualifications?"
             name="experience"
-            options={experienceOptions}
-            required
-            placeholder="How much have you done?"
+            rows={3}
+            placeholder="E.g. six months' bar work, Food Hygiene Level 2 — or nothing yet, that's fine."
+            hint="First-timers welcome"
             className="sm:col-span-2"
           />
         </div>
-        <ChipGroup label="Shifts you can do" options={shiftOptions} hint="Pick as many as you like" />
+        <ChipGroup label="Weekly pattern that suits you" options={rotationOptions} hint="Pick as many as you like" />
       </FormSection>
 
       <FormSection step="3" title="Your CV">
@@ -89,10 +90,10 @@ export function JobSeekerForm({ id = "apply" }: { id?: string }) {
 
       <FormSection step="4" title="Anything else?">
         <TextareaField
-          label="Additional message"
+          label="Tell us anything useful"
           name="message"
           rows={4}
-          placeholder="Tell us anything useful — travel limits, a pay rate you're aiming for, days you definitely can't work, or what you'd love to get into."
+          placeholder="Travel limits, physical restrictions, days or times you definitely can't work, or what you'd love to get into."
           hint="Optional"
         />
         <Check
@@ -100,8 +101,8 @@ export function JobSeekerForm({ id = "apply" }: { id?: string }) {
           required
           label={
             <>
-              I&rsquo;m happy for {""}
-              <span className="font-semibold text-ink">LOGO</span> to contact me about work and to
+              I&rsquo;m happy for{" "}
+              <span className="font-semibold text-ink">The JobFather</span> to contact me about work and to
               hold my details in line with their privacy policy.
             </>
           }

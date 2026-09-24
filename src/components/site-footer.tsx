@@ -25,10 +25,9 @@ const columns = [
   {
     title: "Agency",
     links: [
-      { href: "/about", label: "About us" },
       { href: "/services", label: "What we do" },
+      { href: "/register", label: "Registration & fees" },
       { href: "/contact", label: "Contact" },
-      { href: "/about#team", label: "Meet the team" },
     ],
   },
 ];
@@ -80,8 +79,8 @@ export function SiteFooter() {
             <div>
               <Logo tone="light" interactive={false} />
               <p className="mt-5 max-w-sm text-[0.95rem] leading-relaxed text-white/65">
-                We recruit with a difference. Full-time, part-time and Volunteer Parachute Positions
-                across Croydon and South London.
+                We recruit with a difference. Specialising in Volunteer Parachute Positions across
+                Croydon and South London.
               </p>
             </div>
 

@@ -1,7 +1,12 @@
+import type { Metadata } from "next";
 import { Reveal } from "@/components/reveal";
 import { DualPath } from "@/components/sections/dual-path";
 import { Button, Container, Marquee, SectionHeading, cx } from "@/components/ui";
 import { contact, marqueeTerms } from "@/lib/content";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 /* Draft photography supplied in the client brief — swap for hi-res originals. */
 const briefImages = {
@@ -103,7 +108,7 @@ function Hero() {
                 <span className="mt-1 block font-display text-[1.6rem] leading-tight font-extrabold">
                   Dr. Winston McKenzie
                 </span>
-                <span className="mt-1 block text-[0.88rem] font-semibold text-ink-3">The JobFather</span>
+                <span className="mt-1 block font-display text-[1.2rem] font-extrabold text-grape">The JobFather</span>
               </figcaption>
             </figure>
 
@@ -134,6 +139,7 @@ const DAYS = ["M", "T", "W", "T", "F", "S", "S"];
 
 const rotations = [
   { hours: "9 hrs", days: "1 day", detail: "9 hrs per day, 1 day per week", active: [0] },
+  { hours: "4½ hrs", days: "2 days", detail: "4 hrs 30 mins per day, 2 days per week", active: [1, 3] },
   { hours: "3 hrs", days: "3 days", detail: "3 hrs per day, 3 days per week", active: [0, 2, 4] },
   { hours: "1½ hrs", days: "6 days", detail: "1 hr 30 mins per day, 6 days per week", active: [0, 1, 2, 3, 4, 5] },
 ];
@@ -226,7 +232,7 @@ const hiringCards = [
     image: briefImages.robotics,
     alt: "A young man building a robot in a workshop",
     line: "Need a Job? Upload your CV.",
-    sub: "Registration charge only. No further fees, no spam — ask us to delete everything at any time.",
+    sub: "Registration charge only. No further fees, no spam — ask us to delete anything at any time.",
     cta: { href: "/upload-cv", label: "Upload your CV" },
   },
   {
@@ -290,7 +296,7 @@ function HiringBand() {
             <h2 className="mt-3 text-[1.9rem] leading-[1.08] font-extrabold sm:text-[2.2rem]">
               Are you looking for staff?
             </h2>
-            <p className="mt-3 text-[1rem] text-white/70">Full-time, part-time or Parachute positions?</p>
+            <p className="mt-3 text-[1rem] text-white/70">Volunteer Parachute Positions — our speciality.</p>
             <div className="mt-6">
               <Button href="/employers" variant="zest" size="md">
                 For employers

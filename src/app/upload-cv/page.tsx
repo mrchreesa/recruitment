@@ -1,19 +1,20 @@
-import type { Metadata } from "next";
 import { JobSeekerForm } from "@/components/forms/job-seeker-form";
 import { Reveal } from "@/components/reveal";
-import { Container, Eyebrow, Marquee, Pill } from "@/components/ui";
+import { Button, Container, Eyebrow, Marquee, Pill } from "@/components/ui";
 import { contact, marqueeTerms } from "@/lib/content";
 import { photo } from "@/lib/images";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Upload your CV",
   description:
     "Send us your CV and we'll call you within 24 hours. Pay the registration charge once, with no further fees or spam.",
-};
+  path: "/upload-cv",
+});
 
 const whatHappens = [
   { t: "Within 24 hours", b: "A named consultant calls you. Mobile, not a withheld number." },
-  { t: "Within 1 week", b: "We send you roles that actually fit your travel, hours and pay." },
+  { t: "Within 1 week", b: "We send you roles that actually fit your travel and hours." },
   { t: "Within 2 weeks", b: "Interview or trial shift booked, with prep from us beforehand." },
 ];
 
@@ -33,8 +34,8 @@ export default function UploadCvPage() {
               A phone call <span className="text-zest">tomorrow.</span>
             </h1>
             <p className="mt-6 max-w-xl text-[1.05rem] leading-relaxed text-white/75">
-              Fill this in once. After registration, we&rsquo;ll match you against everything live
-              across our sites.
+              Fill this in once. After registration, we&rsquo;ll match you against any position
+              within our jurisdiction.
             </p>
             <ul className="mt-7 flex flex-wrap gap-2">
               {["Registration charge only", "No CV? No problem", "No further fees", "You can pause anytime"].map(
@@ -93,6 +94,21 @@ export default function UploadCvPage() {
                 </ol>
               </div>
 
+              <div className="rounded-5xl border-2 border-ink bg-zest p-7 shadow-block">
+                <Eyebrow tone="grape">Registration Pack</Eyebrow>
+                <p className="mt-3 font-display text-5xl leading-none font-extrabold">
+                  £30
+                  <span className="ml-2 text-lg font-bold">one-off</span>
+                </p>
+                <p className="mt-3 text-[0.9rem] leading-relaxed text-ink/80">
+                  Confirms your particulars meet regulations and registers your profile. No further
+                  fees at any time.
+                </p>
+                <Button href="/register#candidate" variant="ink" size="md" full className="mt-5">
+                  Pay your Registration Pack
+                </Button>
+              </div>
+
               <div className="rounded-5xl border-2 border-ink bg-coral p-7 shadow-block">
                 <h2 className="font-display text-[1.3rem] leading-tight font-extrabold">
                   Rather just talk to someone?
@@ -116,7 +132,7 @@ export default function UploadCvPage() {
                 <p className="text-[0.82rem] leading-relaxed text-ink-2">
                   <span className="font-bold text-ink">Your data, your call.</span> We only share
                   your CV with a client once you&rsquo;ve said yes to that specific role. Ask us to
-                  delete everything and we will, same day.
+                  delete anything and we will, same day.
                 </p>
               </div>
             </aside>
