@@ -5,7 +5,8 @@ import { Bricolage_Grotesque, Plus_Jakarta_Sans } from "next/font/google";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { JsonLd } from "@/components/json-ld";
-import { organizationJsonLd } from "@/lib/seo";
+import { BRAND } from "@/lib/content";
+import { organizationJsonLd, shareImage } from "@/lib/seo";
 import { siteUrl } from "@/lib/site";
 import "./globals.css";
 
@@ -21,28 +22,32 @@ const sans = Plus_Jakarta_Sans({
   display: "swap",
 });
 
+const title = `${BRAND} — Volunteer Parachute Positions`;
+const description =
+  "Volunteer Parachute Positions in Croydon & South London. Work 9 hours a week with £100 weekly expenses. Register as a job seeker or employer.";
+
 export const metadata: Metadata = {
   metadataBase: siteUrl,
+  applicationName: BRAND,
   title: {
-    default: "The JobFather — Volunteer Parachute Positions · Croydon & South London",
-    template: "%s · The JobFather",
+    default: title,
+    template: `%s · ${BRAND}`,
   },
-  description:
-    "The JobFather, His Excellency Ambassador Dr. Winston McKenzie, recruits with a difference. Specialising in Volunteer Parachute Positions across Croydon and South London.",
+  description,
   openGraph: {
-    title: "The JobFather — We recruit with a difference",
-    description:
-      "Become a Parachute Applicant — and land yourself in a job. £100 per week expenses for 9 hours' work per week. Croydon & South London.",
+    title,
+    description,
     url: "/",
-    siteName: "The JobFather",
+    siteName: BRAND,
     type: "website",
     locale: "en_GB",
+    images: [shareImage],
   },
   twitter: {
     card: "summary_large_image",
-    title: "The JobFather — We recruit with a difference",
-    description:
-      "Become a Parachute Applicant — and land yourself in a job. £100 per week expenses for 9 hours' work per week. Croydon & South London.",
+    title,
+    description,
+    images: [shareImage],
   },
 };
 

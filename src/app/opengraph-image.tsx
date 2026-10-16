@@ -1,13 +1,14 @@
 import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
-import { marqueeTerms } from "@/lib/content";
+import { BRAND } from "@/lib/content";
+import { shareImage } from "@/lib/seo";
 
-export const alt =
-  "The JobFather — Become a Parachute Applicant and land yourself in a job. £100 per week expenses, 9 hours per week, Croydon & South London.";
+export const alt = shareImage.alt;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
+// Match the site's palette in globals.css; ImageResponse cannot load its CSS.
 const INK = "#14121A";
 const BONE = "#FDFCF8";
 const ZEST = "#C4F542";
@@ -35,26 +36,26 @@ export default async function Image() {
           flexDirection: "column",
           background: BONE,
           fontFamily: "Jakarta",
+          fontWeight: 600,
           color: INK,
         }}
       >
-        <div style={{ flex: 1, display: "flex", padding: "52px 64px 0" }}>
-          {/* Copy */}
-          <div style={{ display: "flex", flexDirection: "column", width: 700 }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+        <div style={{ display: "flex", flex: 1, position: "relative", padding: "48px 56px" }}>
+          <div style={{ display: "flex", flexDirection: "column", width: 680 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
               <div
                 style={{
-                  width: 76,
-                  height: 76,
+                  width: 72,
+                  height: 72,
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   background: ZEST,
-                  border: `4px solid ${INK}`,
-                  borderRadius: 20,
+                  border: `3px solid ${INK}`,
+                  borderRadius: 18,
                 }}
               >
-                <svg width="62" height="62" viewBox="0 0 40 40">
+                <svg width="60" height="60" viewBox="0 0 40 40">
                   <path
                     d="M12 24.5C11.4 18.5 11.9 13.4 14.4 11.2c1.6-1.3 3.2.9 5.6.9s4-2.2 5.6-.9c2.5 2.2 3 7.3 2.4 13.3z"
                     fill={INK}
@@ -63,20 +64,17 @@ export default async function Image() {
                   <path d="M3.5 25.2c5.2-3.4 27.8-3.4 33 0-2.8 4.6-30.2 4.6-33 0z" fill={INK} />
                 </svg>
               </div>
-              <div style={{ display: "flex", flexDirection: "column" }}>
-                <div style={{ fontSize: 17, fontWeight: 700, letterSpacing: 6, color: GRAPE }}>THE</div>
-                <div style={{ fontFamily: "Bricolage", fontSize: 44, lineHeight: 1, letterSpacing: -1.5 }}>
-                  JobFather
-                </div>
+              <div style={{ fontFamily: "Bricolage", fontWeight: 800, fontSize: 46, letterSpacing: -1.5 }}>
+                {BRAND}
               </div>
             </div>
 
             <div
               style={{
-                marginTop: 40,
-                fontSize: 20,
+                marginTop: 46,
+                fontSize: 19,
                 fontWeight: 700,
-                letterSpacing: 4,
+                letterSpacing: 2.5,
                 color: GRAPE,
               }}
             >
@@ -86,139 +84,94 @@ export default async function Image() {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                marginTop: 12,
+                alignItems: "flex-start",
+                marginTop: 16,
                 fontFamily: "Bricolage",
-                fontSize: 66,
-                lineHeight: 1,
-                letterSpacing: -2.5,
+                fontWeight: 800,
+                fontSize: 86,
+                lineHeight: 1.04,
+                letterSpacing: -3.5,
               }}
             >
-              <span>Become a</span>
-              <span>Parachute Applicant</span>
-            </div>
-            <div style={{ display: "flex", marginTop: 22 }}>
+              <span>Land yourself</span>
               <div
                 style={{
-                  fontFamily: "Bricolage",
-                  fontSize: 48,
-                  lineHeight: 1,
-                  letterSpacing: -1.5,
+                  display: "flex",
+                  marginTop: 8,
+                  padding: "0 18px 8px",
                   background: ZEST,
-                  border: `4px solid ${INK}`,
+                  border: `3px solid ${INK}`,
                   borderRadius: 18,
-                  padding: "10px 20px 14px",
-                  transform: "rotate(-1.5deg)",
-                  boxShadow: `6px 6px 0 0 ${INK}`,
+                  boxShadow: `6px 6px 0 ${INK}`,
                 }}
               >
-                and land yourself in a job.
+                in a job.
               </div>
             </div>
-
-            <div style={{ display: "flex", alignItems: "flex-start", gap: 10, marginTop: 36 }}>
-              {["£100 per week expenses", "9 hrs per week", "Croydon & South London"].map((chip) => (
-                <div
-                  key={chip}
-                  style={{
-                    display: "flex",
-                    whiteSpace: "nowrap",
-                    fontSize: 18,
-                    fontWeight: 700,
-                    background: "white",
-                    border: `3px solid ${INK}`,
-                    borderRadius: 999,
-                    padding: "8px 16px",
-                  }}
-                >
-                  {chip}
-                </div>
-              ))}
+            <div style={{ marginTop: 26, fontSize: 27 }}>
+              Become a Parachute Applicant.
             </div>
           </div>
 
-          {/* Portrait */}
           <div
             style={{
-              flex: 1,
+              position: "absolute",
+              top: 132,
+              right: 62,
               display: "flex",
-              alignItems: "center",
-              justifyContent: "flex-end",
-              position: "relative",
+              flexDirection: "column",
+              width: 340,
+              background: "white",
+              border: `4px solid ${INK}`,
+              borderRadius: 28,
+              overflow: "hidden",
+              transform: "rotate(2deg)",
+              boxShadow: `8px 8px 0 ${INK}`,
             }}
           >
+            <img src={portraitSrc} width={332} height={286} style={{ objectFit: "cover" }} alt="" />
             <div
               style={{
                 display: "flex",
                 flexDirection: "column",
-                width: 344,
-                background: "white",
-                border: `4px solid ${INK}`,
-                borderRadius: 32,
-                overflow: "hidden",
-                transform: "rotate(2.5deg)",
-                boxShadow: `10px 10px 0 0 ${INK}`,
+                borderTop: `4px solid ${INK}`,
+                padding: "16px 20px 18px",
               }}
             >
-              <img src={portraitSrc} width={336} height={290} style={{ objectFit: "cover" }} alt="" />
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  borderTop: `4px solid ${INK}`,
-                  padding: "14px 22px 18px",
-                }}
-              >
-                <div style={{ fontFamily: "Bricolage", fontSize: 28, letterSpacing: -0.8 }}>
-                  Dr. Winston McKenzie
-                </div>
-                <div style={{ fontSize: 17, fontWeight: 600, color: INK_3 }}>The JobFather</div>
+              <div style={{ fontFamily: "Bricolage", fontWeight: 800, fontSize: 28, letterSpacing: -0.8 }}>
+                Dr. Winston McKenzie
               </div>
-            </div>
-
-            <div
-              style={{
-                position: "absolute",
-                top: 6,
-                left: 0,
-                fontFamily: "Bricolage",
-                fontSize: 30,
-                letterSpacing: -0.8,
-                background: ZEST,
-                border: `4px solid ${INK}`,
-                borderRadius: "24px 24px 24px 6px",
-                padding: "10px 20px 12px",
-                transform: "rotate(-5deg)",
-                boxShadow: `5px 5px 0 0 ${INK}`,
-              }}
-            >
-              “I have a Job for you.”
+              <div style={{ marginTop: 5, fontSize: 18, color: INK_3 }}>
+                We recruit with a difference.
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Ticker strip */}
         <div
           style={{
-            height: 66,
+            height: 86,
+            flexShrink: 0,
             display: "flex",
             alignItems: "center",
-            gap: 26,
-            padding: "0 40px",
+            justifyContent: "space-between",
+            padding: "0 56px",
             background: INK,
-            color: ZEST,
-            fontFamily: "Bricolage",
-            fontSize: 28,
-            letterSpacing: -0.5,
-            overflow: "hidden",
-            whiteSpace: "nowrap",
+            color: BONE,
           }}
         >
-          {marqueeTerms.slice(0, 7).map((term) => (
-            <div key={term} style={{ display: "flex", alignItems: "center", gap: 26 }}>
-              <span>{term}</span>
-              <div style={{ width: 10, height: 10, background: ZEST, opacity: 0.55, transform: "rotate(45deg)" }} />
-            </div>
-          ))}
+          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+            <span style={{ fontFamily: "Bricolage", fontWeight: 800, fontSize: 38, color: ZEST }}>£100</span>
+            <span style={{ fontSize: 20 }}>weekly expenses</span>
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+            <span style={{ fontFamily: "Bricolage", fontWeight: 800, fontSize: 38, color: ZEST }}>9 hours</span>
+            <span style={{ fontSize: 20 }}>per week</span>
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", fontSize: 21, fontWeight: 700 }}>
+            <span>Croydon &amp;</span>
+            <span>South London</span>
+          </div>
         </div>
       </div>
     ),

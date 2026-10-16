@@ -3,11 +3,13 @@ import { BRAND, contact } from "./content";
 import { siteUrl } from "./site";
 
 /** The site-wide share card (app/opengraph-image.tsx), re-attached on every page. */
-const shareImage = {
-  url: "/opengraph-image",
+export const shareImage = {
+  // Bump this version whenever the artwork changes so crawlers fetch the new card.
+  url: "/opengraph-image?v=20261016",
   width: 1200,
   height: 630,
-  alt: "The JobFather — Volunteer Parachute Positions, £100 per week expenses, 9 hours per week, Croydon & South London.",
+  type: "image/png",
+  alt: "The JobFather — Land yourself in a job. Volunteer Parachute Positions with Dr. Winston McKenzie. £100 weekly expenses, 9 hours per week, Croydon & South London.",
 };
 
 /**
@@ -62,7 +64,7 @@ export function organizationJsonLd() {
         name: BRAND,
         url: url(),
         logo: url("/icon.svg"),
-        image: url("/opengraph-image"),
+        image: url(shareImage.url),
         description:
           "The JobFather recruits with a difference, specialising in Volunteer Parachute Positions: 9 hours' work per week, in a rotation to suit the candidate and the employer, with £100 expenses paid at the end of every week.",
         telephone: "+44 7984 690625",
