@@ -8,6 +8,7 @@ import { Logo } from "./logo";
 import { Arrow, Button, Container, cx } from "./ui";
 
 const nav = [
+  { href: "/parachute-positions", label: "Parachute Positions" },
   { href: "/job-seekers", label: "For Job Seekers" },
   { href: "/employers", label: "For Employers" },
   { href: "/services", label: "Services" },
@@ -81,14 +82,14 @@ export function SiteHeader() {
                   href={item.href}
                   aria-current={active ? "page" : undefined}
                   className={cx(
-                    "relative rounded-full px-3.5 py-2 text-[0.88rem] font-semibold tracking-tight transition-colors",
+                    "relative rounded-full px-2 py-2 text-[0.82rem] font-semibold tracking-tight whitespace-nowrap transition-colors xl:px-3.5 xl:text-[0.88rem]",
                     active ? "text-grape" : "text-ink-2 hover:text-ink",
                   )}
                 >
                   {item.label}
                   <span
                     className={cx(
-                      "absolute inset-x-3.5 -bottom-0.5 h-[3px] rounded-full bg-zest-deep transition-transform duration-200",
+                      "absolute inset-x-2 -bottom-0.5 h-[3px] rounded-full bg-zest-deep transition-transform duration-200 xl:inset-x-3.5",
                       active ? "scale-x-100" : "scale-x-0",
                     )}
                   />
@@ -97,11 +98,14 @@ export function SiteHeader() {
             })}
           </nav>
 
+          {/* Six nav links leave no room for both buttons until xl. */}
           <div className="hidden items-center gap-2.5 lg:flex">
-            <Button href="/book" variant="outline" size="sm" arrow={false}>
-              Book a call
-            </Button>
-            <Button href="/upload-cv" variant="zest" size="sm">
+            <div className="hidden xl:block">
+              <Button href="/book" variant="outline" size="sm" arrow={false} className="whitespace-nowrap">
+                Book a call
+              </Button>
+            </div>
+            <Button href="/upload-cv" variant="zest" size="sm" className="whitespace-nowrap">
               Upload your CV
             </Button>
           </div>

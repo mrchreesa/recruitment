@@ -174,6 +174,10 @@ function ParachutePositions() {
                 Ideal to get you into your first job, as a holiday job, or extra income.
               </p>
             </div>
+
+            <Button href="/parachute-positions" variant="outline" size="md" className="mt-6">
+              Why a Parachute Position?
+            </Button>
           </div>
 
           <ul className="flex flex-col gap-5">

@@ -204,8 +204,8 @@ function WhyParachute() {
               <Button href="#brief" variant="grape" size="lg">
                 Tell us what you need
               </Button>
-              <Button href="/services" variant="outline" size="lg" arrow={false}>
-                See our services
+              <Button href="/parachute-positions#employers" variant="outline" size="lg" arrow={false}>
+                Why offer one?
               </Button>
             </div>
           </div>

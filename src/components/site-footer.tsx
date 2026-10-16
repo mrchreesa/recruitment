@@ -25,6 +25,7 @@ const columns = [
   {
     title: "Agency",
     links: [
+      { href: "/parachute-positions", label: "Parachute Positions explained" },
       { href: "/services", label: "What we do" },
       { href: "/register", label: "Registration & fees" },
       { href: "/contact", label: "Contact" },

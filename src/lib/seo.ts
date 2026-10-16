@@ -155,6 +155,7 @@ export const indexedPages = [
   { path: "/", title: "Home", priority: 1 },
   { path: "/job-seekers", title: "For job seekers", priority: 0.9 },
   { path: "/employers", title: "For employers", priority: 0.9 },
+  { path: "/parachute-positions", title: "Parachute Positions explained", priority: 0.8 },
   { path: "/register", title: "Registration & fees", priority: 0.8 },
   { path: "/upload-cv", title: "Upload your CV", priority: 0.8 },
   { path: "/services", title: "Services", priority: 0.7 },

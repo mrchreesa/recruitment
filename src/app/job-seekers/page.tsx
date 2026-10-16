@@ -125,6 +125,11 @@ function Perks() {
             </Reveal>
           ))}
         </ul>
+        <div className="mt-10 flex justify-center">
+          <Button href="/parachute-positions#job-seekers" variant="outline" size="lg">
+            Is a Parachute Position right for me?
+          </Button>
+        </div>
       </Container>
     </section>
   );
