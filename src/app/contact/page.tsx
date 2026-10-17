@@ -71,7 +71,7 @@ export default function ContactPage() {
               </a>
               <a
                 href={`mailto:${contact.email}`}
-                className="inline-flex items-center gap-2.5 rounded-full border-2 border-white/50 px-6 py-3.5 text-[0.95rem] font-semibold transition-colors hover:border-white hover:bg-white hover:text-ink"
+                className="inline-block max-w-full rounded-full border-2 border-white/50 px-6 py-3.5 text-[0.95rem] font-semibold [overflow-wrap:anywhere] transition-colors hover:border-white hover:bg-white hover:text-ink"
               >
                 {contact.email}
               </a>
@@ -104,7 +104,7 @@ function Routes() {
                 <p className="mt-3 flex-1 text-[0.92rem] leading-relaxed text-ink-2">{r.body}</p>
                 <a
                   href={r.detailHref}
-                  className="mt-5 block truncate font-display text-[1.05rem] font-extrabold text-grape underline decoration-2 underline-offset-4 hover:text-grape-mid"
+                  className="mt-5 block font-display text-[1.05rem] font-extrabold text-grape underline decoration-2 underline-offset-4 [overflow-wrap:anywhere] hover:text-grape-mid"
                 >
                   {r.detail}
                 </a>
