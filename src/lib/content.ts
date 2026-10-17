@@ -6,8 +6,8 @@ export const contact = {
   phone: "07984 690625",
   phoneHref: "tel:07984690625",
   whatsapp: "07984 690625",
-  email: "support@commonwealthcentral.co.uk",
-  employersEmail: "support@commonwealthcentral.co.uk",
+  email: "supper@thejobfather-partners.co.uk",
+  employersEmail: "supper@thejobfather-partners.co.uk",
   address: ["Croydon & South London"],
   hours: [
     ["Monday – Friday", "9:30am – 4:30pm"],
